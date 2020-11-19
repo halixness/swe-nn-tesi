@@ -1,9 +1,8 @@
 input="input_toce_ris_V17_50.txt"
 input_aux="toce_ris_V17_50"
-timesteps=1000
 
-# Run simulazion
-./swegpu $input -order=1 -gpu=0 -frames 0 $timesteps > "output.txt"
+# Run simulation
+./swegpu $input -order=1 -gpu=0 > "output.txt"
 
 rm *-INITIAL*
 
