@@ -1,3 +1,6 @@
 output/*
-
+decoded/*
 input
+**/.ipynb_checkpoints/*
+.DS_Store
+**/old_input/*
