@@ -3,7 +3,7 @@ Generazione matrice binaria celle asciutte da portata variabile in input.
 
 #### Passaggi:
 - Script generatore portata:
-  - *(N)* Modifica e genera i file BCC (START: 0,01840, END: 0,1840, STEPS: 100)
+  - [X] *(N)* Modifica e genera i file BCC (START: 0,01840, END: 0,1840, STEPS: 100)
   - *(N)* Generare dataset (file numpy con array di portate)
 - Simulazioni:
   - [X] *(S)* Creare script automatici per le varie N versioni del file BCC
