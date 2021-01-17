@@ -10,7 +10,7 @@ Generazione matrice binaria celle asciutte da portata variabile in input.
   - [X] *(S)* Lanciare le N simulazioni
   - [X] *(S)* Effettuare il decode con diversi livelli di risoluzione (**2x, 3x**)
   - [X] *(D)* Da ogni simulazione plottare LAST_WSE e LAST_DEP
-  - [X]*(D)* Da ogni simulazione calcolare LAST_WSE - LAST_BTM, poi generare matrice binaria (**soglia = 5e-3, 1e-3**) e plottare queste matrici binarie
+  - [X] *(D)* Da ogni simulazione calcolare LAST_WSE - LAST_BTM, poi generare matrice binaria (**soglia = 5e-3, 1e-3**) e plottare queste matrici binarie
   - TEST SIGNIFICATO PLOT DELLE MATRICI
 - Rete Neurale:
   - Due possibili input:
