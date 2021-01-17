@@ -2,3 +2,5 @@
 .DS_Store
 **/datasets/*
 **/old_input/*
+**/decoded_*
+**/decode_*
