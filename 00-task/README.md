@@ -18,8 +18,6 @@ Generazione matrice binaria celle asciutte da portata variabile in input.
     - Valore portata + matrice batimetria (combined CNN)
   - Fine tuning & pray
 
-======
-
 ## Generazione dei file da simulazione
 
 ### Prerequisiti per avviare il progetto
@@ -41,8 +39,6 @@ Si prevedono tempi di esecuzione di circa 15 minuti
 ### Risultati dello script
 Recuperabile sul cluster, nella cartella `$SCRATCH/tesi` in scratch dell'utente, sotto `output_<data_avvio_sbatch>`
 Copiare queste cartelle output dentro `$SCRATCH/output/`.
-
-======
 
 ## Generazione dei file target
 
