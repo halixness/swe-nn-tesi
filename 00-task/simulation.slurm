@@ -21,13 +21,13 @@ output_dir_name="output_$date"			# Output dir
 input_file="input_toce_ris_V17_50.txt"		# Parameter file
 input_map="toce_ris_V17_50"			# Input maps name
 output_file="output.txt"			# Output file (???)
-swegpu=$HOME/new-tesi/swegpu			# Path to executable
+swegpu=$SCRATCH/swegpu				# Path to executable
 
 export OUTPUT_DIR=$SCRATCH/tesi/$output_dir_name/
 export PATH=/hpc/share/tools/cuda-8.0.61/bin:$PATH
 export LD_LIBRARY_PATH=/hpc/share/tools/cuda-8.0.61/lib64:$LD_LIBRARY_PATH
 
-input_dir="$HOME/new-tesi/$test_dir"
+input_dir="$SCRATCH/input/"
 simulation_output_dir="$OUTPUT_DIR/simulation_$bcc_id"
 
 # Simulation Phase
@@ -44,5 +44,5 @@ ln -s $input_dir/bccs/$bcc
 ${swegpu} ${input_file} -order=1 -multi=hi -gpu=0 > ${output_file}
 
 # Decode Phase
-ln -s $HOME/new-tesi/decode.sh
+ln -s $SCRATCH/decode.sh
 ./decode.sh $input_map $date $bcc_id
