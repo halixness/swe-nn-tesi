@@ -1,5 +1,6 @@
-## Task di ricerca 00 
+## Previsione livelli WSE
 Generazione matrice binaria celle asciutte da portata variabile in input.
+- Simulazione 16-01-2021 [INPUT](https://github.com/halixness/swe-nn-tesi/tree/main/00-task/input), [DECODE](https://drive.google.com/file/d/1RSLllav9MpYREqR1eEFX1UHm2I5UWh6_/view?usp=sharing), [OUTPUT](https://github.com/halixness/swe-nn-tesi/tree/main/00-task/output/output_16-01-2021_09.35)
 
 #### Passaggi:
 - Script generatore portata:
