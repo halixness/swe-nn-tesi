@@ -92,7 +92,7 @@ for bcc in range(n_bcc):
     result = np.abs(btm - maxwse)
 
     binary_5mm = (result >= 5e-3)
-    binary_1mm = (result >= 5e-3)
+    binary_1mm = (result >= 1e-3)
 
     # -> numpy
     if exp_numpy:
