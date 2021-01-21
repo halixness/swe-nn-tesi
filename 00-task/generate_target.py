@@ -17,13 +17,13 @@ parser.add_option("-o", "--output-dir", dest="out_dir",
                   help="Directory file decodificati", metavar="FILE")
 
 parser.add_option("-n", "--bccs", dest="bccs",
-                  help="Numero di simulazioni (BCCs forniti)", metavar="FILE")                  
+                  help="Numero di simulazioni (BCCs forniti)", metavar="FILE")
 
 parser.add_option("-p", "--prefix", dest="prefix", default="toce_ris_V17_50",
-                  help="Prefisso simulazione (es: toce_ris_V17_50)", metavar="FILE")                  
+                  help="Prefisso simulazione (es: toce_ris_V17_50)", metavar="FILE")
 
 parser.add_option("-y", "--numpy", dest="exp_numpy", default="0",
-                  help="Opzione esporta in formato numpy", metavar="FILE")                  
+                  help="Opzione esporta in formato numpy", metavar="FILE")
 
 (options, args) = parser.parse_args()
 
@@ -67,52 +67,48 @@ targets_dir = "output/{}/targets".format(out_dir)
 
 # Check & creating dirs
 if not os.path.isdir(plots_dir): os.mkdir(plots_dir)
-if not os.path.isdir(targets_dir): 
+if not os.path.isdir(targets_dir):
     os.mkdir(targets_dir)
     os.mkdir("{}/5mm/".format(targets_dir))
-    os.mkdir("{}/1mm/".format(targets_dir))
 
 # option numpy
 if exp_numpy:
     targets_5mm = []
-    targets_1mm = []
+
+# Get & plot BTM
+btm = txt_to_numpy("{}000/{}".format(prefix_dir, btm_file))
+btm[btm > 1e10] = 0
+plt.imsave("{}/btm.png".format(plots_dir), btm)
 
 for bcc in range(n_bcc):
-    
+
     source = "{}{:03d}".format(prefix_dir, bcc)
-    
-    btm = txt_to_numpy("{}/{}".format(source, btm_file))
+
     maxwse = txt_to_numpy("{}/{}".format(source, maxwse_file))
-    
+
     # Rimozione valori soglia
-    btm[btm > 1e10] = 0
     maxwse[maxwse > 1e10] = 0
 
     # Generazione matrici target
-    result = np.abs(btm - maxwse)
+    result = maxwse - btm
+    result[result < 0] = 0
 
     binary_5mm = (result >= 5e-3)
-    binary_1mm = (result >= 1e-3)
 
     # -> numpy
     if exp_numpy:
         targets_5mm.append(binary_5mm)
-        targets_1mm.append(binary_1mm)
 
     # -> files
     numpy_to_txt("{}/5mm/binary_{}.txt".format(targets_dir, bcc), binary_5mm)
-    numpy_to_txt("{}/1mm/binary_{}.txt".format(targets_dir, bcc), binary_1mm)    
 
     # Plotting
-    plt.imsave("{}/btm_{}.png".format(plots_dir, bcc), btm)
     plt.imsave("{}/maxwse_{}.png".format(plots_dir, bcc), maxwse)
-    # plt.imsave("{}/binary_5mm_{}.png".format(plots_dir, bcc), binary_5mm)
+    plt.imsave("{}/binary_5mm_{}.png".format(plots_dir, bcc), binary_5mm)
 
     print("Processed bcc: {}".format(bcc))
 
 # -> file
 if exp_numpy:
     targets_5mm = np.asarray(targets_5mm)
-    targets_1mm = np.asarray(targets_1mm)
     np.save("{}/targets_5mm.npy".format(targets_dir), targets_5mm)
-    np.save("{}/targets_1mm.npy".format(targets_dir), targets_1mm)
