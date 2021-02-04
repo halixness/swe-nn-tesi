@@ -12,12 +12,13 @@ Generazione matrice binaria celle asciutte da portata variabile in input.
   - [X] *(S)* Effettuare il decode con diversi livelli di risoluzione (**2x, 3x**)
   - [X] *(D)* Da ogni simulazione plottare LAST_WSE e LAST_DEP
   - [X] *(D)* Da ogni simulazione calcolare LAST_WSE - LAST_BTM, poi generare matrice binaria (**soglia = 5e-3, 1e-3**) e plottare queste matrici binarie
-  - TEST SIGNIFICATO PLOT DELLE MATRICI
-- Rete Neurale:
-  - Due possibili input:
-    - Valore portata (feed forward semplice)
-    - Valore portata + matrice batimetria (combined CNN)
-  - Fine tuning & pray
+
+#### Modelli sviluppati
+
+| Modello | Output | Train Accuracy | Test Accuracy | Metric | Stato |
+|---------|--------|----------------|---------------|--------|--------|
+| [Feed forward](https://colab.research.google.com/drive/1ZSE7LwpSSqlcNsjjxw74E4u5PI-tlu5u?usp=sharing) | Matrice Binaria |  97,3%  | 96%  | Cosine Distance | DA VERIFICARE |
+| [LSTM + CNN](https://colab.research.google.com/drive/1C3rrqjSyKm-ucwMJx4tKUz2XPnEfMbwc?usp=sharing) | Matrice MAXWSE |  94,9%  | 96,1%  | Cosine Distance | DA VERIFICARE |
 
 ## Generazione dei file da simulazione
 
